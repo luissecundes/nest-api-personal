@@ -1,8 +1,10 @@
 import { Module } from "@nestjs/common";
+import { RecadoController } from "./recado.controller";
+import { RecadoService } from "./recado.service";
 
 @Module({
-    controllers: [],
-    providers: [],
+    controllers: [RecadoController],
+    providers: [RecadoService],
     exports: []
 })
 export class RecadoModule { }
