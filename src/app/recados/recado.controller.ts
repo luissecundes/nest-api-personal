@@ -1,6 +1,6 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Patch, Post } from "@nestjs/common";
 
-
+// CRUD
 @Controller('recados')
 export class RecadoController { 
     @Get()
@@ -11,5 +11,13 @@ export class RecadoController {
     @Post()
     create(@Body() body: any) {
         return body;
+    }
+
+    @Patch(':id')
+    update(@Param('id') id: string,  @Body() body: any) {
+        return {
+            id,
+            ...body
+        };
     }
 }
