@@ -3,3 +3,9 @@
 GET {{ baseUrl }}/recados/
 ###
 POST {{ baseUrl }}/recados/
+Content-Type: application/json
+
+{
+    "recado": "Este é outro recado diferente",
+    "nova chave": "outro valor"
+}
