@@ -1,8 +1,8 @@
-import { Body, Controller, Get, Param, Patch, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/common";
 
 // CRUD
 @Controller('recados')
-export class RecadoController { 
+export class RecadoController {
     @Get()
     getRecados() {
         return 'Recados';
@@ -14,10 +14,15 @@ export class RecadoController {
     }
 
     @Patch(':id')
-    update(@Param('id') id: string,  @Body() body: any) {
+    update(@Param('id') id: string, @Body() body: any) {
         return {
             id,
             ...body
         };
+    }
+
+    @Delete(':id')
+    remove(@Param('id') id: string) {
+        return "Conseguimos remover o item com ID: " + id;
     }
 }
