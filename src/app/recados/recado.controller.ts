@@ -1,28 +1,31 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/common";
+import { RecadoService } from "./recado.service";
 
 // CRUD
 @Controller('recados')
 export class RecadoController {
-    @Get()
-    getRecados() {
-        return 'Recados';
-    }
+  constructor(private readonly recadoService: RecadoService) {}
 
-    @Post()
-    create(@Body() body: any) {
-        return body;
-    }
+  @Get()
+  getRecados() {
+    return this.recadoService.hello();
+  }
 
-    @Patch(':id')
-    update(@Param('id') id: string, @Body() body: any) {
-        return {
-            id,
-            ...body
-        };
-    }
+  @Post()
+  create(@Body() body: any) {
+    return body;
+  }
 
-    @Delete(':id')
-    remove(@Param('id') id: string) {
-        return "Conseguimos remover o item com ID: " + id;
-    }
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() body: any) {
+    return {
+      id,
+      ...body,
+    };
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return 'Conseguimos remover o item com ID: ' + id;
+  }
 }

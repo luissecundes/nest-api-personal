@@ -3,8 +3,8 @@ import { RecadoController } from "./recado.controller";
 import { RecadoService } from "./recado.service";
 
 @Module({
-    controllers: [RecadoController],
-    providers: [RecadoService],
-    exports: []
+  controllers: [RecadoController],
+  providers: [RecadoService],
+  exports: [RecadoService],
 })
-export class RecadoModule { }
+export class RecadoModule {}
