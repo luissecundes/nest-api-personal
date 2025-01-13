@@ -7,8 +7,8 @@ export class RecadoController {
   constructor(private readonly recadoService: RecadoService) {}
 
   @Get()
-  getRecados() {
-    return this.recadoService.hello();
+  findAll() {
+    return this.recadoService.findAll();
   }
 
 //   @Post()
