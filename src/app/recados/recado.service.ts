@@ -21,7 +21,9 @@ export class RecadoService {
   }
 
   findOne(id: string) {
-    return this.recados.find(item => item.id === +id);
+    const recado = this.recados.find(item => item.id === +id);
+    if (recado) return recado;
+    throw new Error('Recado inexistente');
   }
 
   create(body: any) {
