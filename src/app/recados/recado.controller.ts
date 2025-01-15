@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Param } from "@nestjs/common";
 import { RecadoService } from "./recado.service";
 
 // CRUD
@@ -11,21 +11,8 @@ export class RecadoController {
     return this.recadoService.findAll();
   }
 
-//   @Post()
-//   create(@Body() body: any) {
-//     return body;
-//   }
-
-//   @Patch(':id')
-//   update(@Param('id') id: string, @Body() body: any) {
-//     return {
-//       id,
-//       ...body,
-//     };
-//   }
-
-//   @Delete(':id')
-//   remove(@Param('id') id: string) {
-//     return 'Conseguimos remover o item com ID: ' + id;
-//   }
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.recadoService.findOne(id);
+  }
 }

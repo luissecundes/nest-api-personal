@@ -18,4 +18,8 @@ export class RecadoService {
   findAll() {
     return this.recados
   }
+
+  findOne(id: string) {
+    return this.recados.find(item => item.id === +id);
+  }
 }
