@@ -31,5 +31,6 @@ export class RecadoService {
       ...body,
     };
     this.recados.push(novoRecado);
+    return novoRecado;
   }
 }

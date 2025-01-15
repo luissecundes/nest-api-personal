@@ -18,6 +18,6 @@ export class RecadoController {
 
   @Post()
   create(@Body() body: any) {
-    return body;
+    return this.recadoService.create(body);
   }
 }
