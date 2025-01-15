@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Injectable } from '@nestjs/common';
 import { RecadoEntity } from './entities/recado.entity';
 
@@ -32,5 +33,27 @@ export class RecadoService {
     };
     this.recados.push(novoRecado);
     return novoRecado;
+  }
+
+  update(id: string, atualizaRecado: any) {
+    const recadoExistenteIndex = this.recados.findIndex(
+      item => item.id === +id,
+    );
+    if (recadoExistenteIndex >= 0) {
+      const recadoExistente = this.recados[recadoExistenteIndex];
+      this.recados[recadoExistenteIndex] = {
+        ...recadoExistente,
+        ...atualizaRecado,
+      };
+    }
+  }
+
+  remove(id: string) {
+    const recadoExistenteIndex = this.recados.findIndex(
+      item => item.id === +id,
+    );
+    if (recadoExistenteIndex >= 0) {
+      this.recados.splice(recadoExistenteIndex, 1);
+    }
   }
 }
