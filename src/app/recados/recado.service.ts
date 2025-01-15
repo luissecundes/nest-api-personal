@@ -12,14 +12,24 @@ export class RecadoService {
       para: 'Maria',
       lido: false,
       data: new Date(),
-    }
+    },
   ];
 
   findAll() {
-    return this.recados
+    return this.recados;
   }
 
   findOne(id: string) {
     return this.recados.find(item => item.id === +id);
+  }
+
+  create(body: any) {
+    this.lastId++;
+    const id = this.lastId;
+    const novoRecado = {
+      id,
+      ...body,
+    };
+    this.recados.push(novoRecado);
   }
 }
